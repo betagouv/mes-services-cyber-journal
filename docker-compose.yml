@@ -1,0 +1,45 @@
+version: '3'
+
+services:
+  msc-journal-db:
+    image: postgres
+    environment:
+      - POSTGRES_HOST_AUTH_METHOD=trust
+    networks:
+      - msc-network
+    ports:
+      - "5433:5432"
+    volumes:
+      - /var/lib/postgresql/data
+
+  metabase:
+    image: metabase/metabase:v0.51.3
+    environment:
+      - MB_DB_TYPE=postgres
+      - MB_DB_DBNAME=msc-journal
+      - MB_DB_PORT=5432
+      - MB_DB_USER=postgres
+      - MB_DB_PASS=postgres
+      - MB_DB_HOST=msc-journal-db
+    networks:
+      - msc-network
+    ports:
+      - "3001:3000"
+    depends_on:
+      - msc-journal-db
+
+  # https://github.com/nodejs/docker-node/blob/main/README.md#how-to-use-this-image
+  node:
+    image: node:18.12.1 # Version LTS
+    volumes:
+      - ./:/home/node/app
+    working_dir: /home/node/app
+    command: "./scripts/migrations.sh"
+    networks:
+      - msc-network
+    depends_on:
+      - msc-journal-db
+
+networks:
+  msc-network:
+    external: true

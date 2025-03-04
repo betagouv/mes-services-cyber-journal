@@ -1,0 +1,24 @@
+{
+  "name": "MonServiceSécurisé-Journal",
+  "version": "1.0.0",
+  "description": "",
+  "engines": {
+    "node": "18.12.1",
+    "npm": "8.19.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/betagouv/mon-service-securise-journal.git"
+  },
+  "author": "",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/betagouv/mon-service-securise-journal/issues"
+  },
+  "homepage": "https://github.com/betagouv/mon-service-securise-journal#readme",
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "knex": "^2.4.0",
+    "pg": "^8.8.0"
+  }
+}
