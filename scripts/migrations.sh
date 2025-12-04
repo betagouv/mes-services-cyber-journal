@@ -1,4 +1,4 @@
 #!/bin/bash -e
 
-npm install
+npm ci
 npx knex migrate:latest
