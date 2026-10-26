@@ -17,7 +17,7 @@
   },
   "homepage": "https://github.com/betagouv/mes-services-cyber-journal#readme",
   "dependencies": {
-    "dotenv": "^16.0.3",
+    "dotenv": "^18.0.9",
     "knex": "^2.4.0",
     "pg": "^8.8.0"
   }
