@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "engines": {
-    "node": "18.12.1",
+    "node": ">=26.0.0",
     "npm": "8.19.2"
   },
   "repository": {
